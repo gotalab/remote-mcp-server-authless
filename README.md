@@ -13,6 +13,23 @@ Alternatively, you can use the command line below to get the remote MCP Server c
 npm create cloudflare@latest -- my-mcp-server --template=cloudflare/ai/demos/remote-mcp-authless
 ```
 
+## Develop this repository
+
+Use Node.js 24.22.1 or a newer 24.x security release and pnpm 12.14.0
+(the version pinned in `package.json`). Node.js runs the local development
+tools; the deployed server runs on Cloudflare Workers.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm test
+pnpm build # bundle only; does not deploy
+pnpm dev
+```
+
+The npm scaffolding command above and the npx client configuration below remain
+supported. They are separate from this repository's development tooling.
+
 ## Customizing your MCP Server
 
 To add your own [tools](https://developers.cloudflare.com/agents/model-context-protocol/tools/) to the MCP server, define each tool inside the `init()` method of `src/index.ts` using `this.server.tool(...)`. 
