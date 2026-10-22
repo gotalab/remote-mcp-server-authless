@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '24'
           check-latest: true
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6.1.0
       - name: Record tool versions and enforce security floor
         run: |
           node --version
